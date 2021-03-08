@@ -162,7 +162,6 @@ def infoBar():
                     turn = 2
             game.roundT = 0
 
-        game.roundT = 0
 
 
 def menu():
