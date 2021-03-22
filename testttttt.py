@@ -67,7 +67,7 @@ class Button():
         buttonText = textFont.render(text, True, textColour)
         buttonText_x = buttonText.get_rect().width
         buttonText_y = buttonText.get_rect().height
-        screen.blit(buttonText, (((x + (width / 2)) - (buttonText_x / 2)), ((y + (height / 2)) - (buttonText_y / 2))))
+        screen.blit(buttonText, (((x + int(width / 2)) - int(buttonText_x / 2)), ((y + int(height / 2)) - int(buttonText_y / 2))))
         if self.clickedIn(x, y, width, height):
             return True
 
@@ -86,44 +86,44 @@ def infoBar():
         text = font.render("GOAL: " + str(game.goal), True, BLACK)
         text_x = text.get_rect().width
         text_y = text.get_rect().height
-        screen.blit(text, ((250 - (text_x / 2)), (35 - (text_y / 2))))
+        screen.blit(text, ((250 - int(text_x / 2)), (35 - int(text_y / 2))))
         text = font.render("Player1 score: " + str(game.score1), True, BLACK)
         text_x = text.get_rect().width
         text_y = text.get_rect().height
-        screen.blit(text, ((150 - (text_x / 2)), (80 - (text_y / 2))))
+        screen.blit(text, ((150 - int(text_x / 2)), (80 - int(text_y / 2))))
         text = font.render("Player2 score: " + str(game.score2), True, BLACK)
         text_x = text.get_rect().width
         text_y = text.get_rect().height
-        screen.blit(text, ((350 - (text_x / 2)), (80 - (text_y / 2))))
+        screen.blit(text, ((350 - int(text_x / 2)), (80 - int(text_y / 2))))
         if turn == 1:
             text = font.render("Player 1's Turn", True, BLACK)
             text_x = text.get_rect().width
             text_y = text.get_rect().height
-            screen.blit(text, ((250 - (text_x / 2)), (150 - (text_y / 2))))
+            screen.blit(text, ((250 - int(text_x / 2)), (150 - int(text_y / 2))))
         else:
             text = font.render("Player 2's Turn", True, BLACK)
             text_x = text.get_rect().width
             text_y = text.get_rect().height
-            screen.blit(text, ((250 - (text_x / 2)), (150 - (text_y / 2))))
+            screen.blit(text, ((250 - int(text_x / 2)), (150 - int(text_y / 2))))
 
         text = font.render("This round's total: " + str(game.roundT), True, BLACK)
         text_x = text.get_rect().width
         text_y = text.get_rect().height
-        screen.blit(text, ((250 - (text_x / 2)), (200 - (text_y / 2))))
+        screen.blit(text, ((250 - int(text_x / 2)), (200 - int(text_y / 2))))
         text = font.render(str(game.throw), True, BLACK)
         text_x = text.get_rect().width
         text_y = text.get_rect().height
-        screen.blit(text, ((300 - (text_x / 2)), (250 - (text_y / 2))))
+        screen.blit(text, ((300 - int(text_x / 2)), (250 - int(text_y / 2))))
     elif gameState == 1:  # p1
         text = font.render("PLAYER 1 WINS", True, BLACK)
         text_x = text.get_rect().width
         text_y = text.get_rect().height
-        screen.blit(text, ((150 - (text_x / 2)), (50 - (text_y / 2))))
+        screen.blit(text, ((150 - int(text_x / 2)), (50 - int(text_y / 2))))
     elif gameState == 2:  # p2
         text = font.render("PLAYER 2 WINS", True, BLACK)
         text_x = text.get_rect().width
         text_y = text.get_rect().height
-        screen.blit(text, ((150 - (text_x / 2)), (50 - (text_y / 2))))
+        screen.blit(text, ((150 - int(text_x / 2)), (50 - int(text_y / 2))))
 
     if gameState == 1 or gameState == 2:
         if button.clickButton(325, 25, 150, 50, RED, ORANGE, font, "RESET", BLACK):
@@ -170,11 +170,11 @@ def menu():
     text = font.render("PIGS", True, BLACK)
     text_x = text.get_rect().width
     text_y = text.get_rect().height
-    screen.blit(text, ((250 - (text_x / 2)), (100 - (text_y / 2))))
+    screen.blit(text, ((250 - int(text_x / 2)), (100 - int(text_y / 2))))
     text = font.render("GAME", True, BLACK)
     text_x = text.get_rect().width
     text_y = text.get_rect().height
-    screen.blit(text, ((250 - (text_x / 2)), (150 - (text_y / 2))))
+    screen.blit(text, ((250 - int(text_x / 2)), (150 - int(text_y / 2))))
     if button.clickButton(200, 250, 100, 50, RED, ORANGE, font, "SMALL", BLACK):
         game.reset(100, 1)
         gameState = 0
@@ -196,7 +196,7 @@ def custom():
     text = font.render("GOAL: " + str(maxScore), True, BLACK)
     text_x = text.get_rect().width
     text_y = text.get_rect().height
-    screen.blit(text, ((225 - (text_x / 2)), (180 - (text_y / 2))))
+    screen.blit(text, ((225 - int(text_x / 2)), (180 - int(text_y / 2))))
     if button.clickButton(300, 160, 20, 20, RED, ORANGE, font, " /\ ", BLACK):
         if maxScore < 1000:
             maxScore += 50
@@ -206,7 +206,7 @@ def custom():
     text = font.render("DICE: " + str(noDice), True, BLACK)
     text_x = text.get_rect().width
     text_y = text.get_rect().height
-    screen.blit(text, ((230 - (text_x / 2)), (260 - (text_y / 2))))
+    screen.blit(text, ((230 - int(text_x / 2)), (260 - int(text_y / 2))))
     if button.clickButton(300, 240, 20, 20, RED, ORANGE, font, " /\ ", BLACK):
         if noDice < 20:
             noDice += 1
